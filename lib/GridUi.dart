@@ -24,14 +24,6 @@ class gridui extends StatelessWidget {
     "images/m4.jpg",
     "images/m5.jpg",
     "images/m6.jpg"];
-  final List<String>listTitle = [
-    "Top 50 /n Global",
-    "Pop Music",
-    "Lofi Music",
-    "M+IKE",
-    "Car Music",
-    "TIK TOK"
-  ];
 
   //final List<String> images = [""];
   List screens = const[
@@ -66,14 +58,14 @@ class gridui extends StatelessWidget {
           //     index =tapindex;
           //   });},
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home,), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home,),backgroundColor:Colors.black, label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite,), label: "Favorite"),
-            BottomNavigationBarItem(icon: Icon(Icons.people,), label: "People"),
+                icon: Icon(Icons.favorite,),backgroundColor:Colors.black, label: "Favorite"),
+            BottomNavigationBarItem(icon: Icon(Icons.people,), backgroundColor:Colors.black,label: "People"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.camera_alt_rounded,), label: "Camera"),
+                icon: Icon(Icons.camera_alt_rounded,), backgroundColor:Colors.black,label: "Camera"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_sharp,), label: "Favorite"),
+                icon: Icon(Icons.favorite_sharp,),backgroundColor:Colors.black, label: "Favorite"),
 
           ],
         ),
