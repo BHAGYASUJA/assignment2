@@ -1,9 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
+
 void main() {
-  runApp(MaterialApp(
-    home: ProfileUiStackScreen(),
+  runApp(DevicePreview(
+    builder:(BuildContext context)=> MaterialApp(
+      useInheritedMediaQuery: true,
+      home: ProfileUiStackScreen(),
+      debugShowCheckedModeBanner: false,
+    ),
   ));
 }
 
@@ -14,7 +20,7 @@ class ProfileUiStackScreen extends StatelessWidget {
       appBar: AppBar(
         leading: Icon(Icons.menu),
         backgroundColor: Colors.black,
-        title: Text('Stack Task'),
+        title: Text('Profile UI'),
         centerTitle: true,
         actions: [
           Padding(
