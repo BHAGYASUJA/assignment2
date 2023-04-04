@@ -1,117 +1,106 @@
-
-import 'package:device_preview/device_preview.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(DevicePreview(
-    builder:(BuildContext context)=> const MaterialApp(
-      useInheritedMediaQuery: true,
-      home: profilee(),
-      debugShowCheckedModeBanner: false,
-    ),
+  runApp(MaterialApp(
+    home: ProfileUiStackScreen(),
   ));
 }
 
-class profilee extends StatelessWidget {
-  const profilee({Key? key}) : super(key: key);
-
+class ProfileUiStackScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.blue,
+        leading: Icon(Icons.menu),
+        backgroundColor: Colors.black,
+        title: Text('Stack Task'),
         centerTitle: true,
-        title:
-        Text("Profile",
-          textAlign:TextAlign.center,
-          style: TextStyle(
-          fontWeight: FontWeight.bold,
-            fontSize: 35,
-            fontStyle:FontStyle.italic,
-        ),),
-        leading: IconButton (
-          icon: const Icon(Icons.menu,color: Colors.black,size: 29,),
-          onPressed: () {
-          },),
         actions: [
-          IconButton (
-            icon: const Icon(Icons.more_vert,color: Colors.black,size: 29,),
-            onPressed: () {
-            },),],
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Icon(Icons.more_vert),
+          )
+        ],
       ),
-        body: Stack(
-          clipBehavior: Clip.none,
-        alignment: Alignment.center,
+      body: Stack(
         children: [
           Container(
-              height:250,
-              //width: double.infinity,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("images/R.jpeg"),
-                    fit: BoxFit.cover,
+            height: 200,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    'images/R.jpeg',
                   ),
-              ),),
-          Positioned(
-                bottom: -20,
-                 left: 0,
-                  right: 0,
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   children: [
-                     Container(
-                        // width: 100,
-                        //  height: 100,
-                     child: CircleAvatar(
-                       backgroundColor: Colors.red,
-                       radius: 30,
-                       child: Icon(Icons.message,color: Colors.white,size: 30,),
-                     ),),
-                     Container(
-                      width: 100,
-                      height:100,
-                       // alignment: Alignment.topLeft,
-                       decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(200),
-                         image: DecorationImage(image: AssetImage("images/bhagya.jpg"),
-                           fit: BoxFit.cover,
-                         ),
-                       ),),
-                     CircleAvatar(
-                     radius: 30,
-                     child: Icon(Icons.add,color: Colors.white,size: 30,),
-                   ),]
-                 ),
-               ),
-
-          Positioned(
-            top: 150,
-            bottom: -9,
-            right: 150,
-            child:
-            Column(
-              children:[
-                SizedBox(
-              height: 50,),
-            Text("Bhagya V R \n Flutter Developer", style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.grey.shade700),
+                  fit: BoxFit.cover),
             ),
-            // Expanded(child:
-            // Text(
-            //         'Flutter Deveeloper',
-            //         style: TextStyle(
-            //             fontWeight: FontWeight.w400,
-            //             fontSize: 16,
-            //             color: Colors.blue),)
-            // )
-            ]
-            )
-          ,)
-
-              //
+          ),
+          Positioned(
+              top: 140,
+              left: 0,
+              right: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.red,
+                      child: Icon(
+                        Icons.message,
+                        size: 30,
+                        color: Colors.white,
+                      )),
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 60,
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage(
+                          'images/bhagya.jpg'),
+                      radius: 50,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print("tapped");
+                    },
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.lightBlue,
+                      child: Icon(
+                        Icons.add,
+                        size: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              )),
+          Positioned(
+            child: Container(height: 330),
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Column(
+              children: [
+                Text(
+                  'BHAGYA V R',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                      color: Colors.grey.shade700),
+                ),
+                Text(
+                  'Flutter Developer',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      color: Colors.blue),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

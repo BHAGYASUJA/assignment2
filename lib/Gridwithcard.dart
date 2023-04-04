@@ -19,10 +19,10 @@ class grid_with_card extends StatelessWidget {
     return Scaffold(
        body: Center(
           child: GridView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            itemCount: 12,
-            itemBuilder: (ctx, i) {
+              shrinkWrap: true,
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              itemCount: 12,
+              itemBuilder: (ctx, i) {
               return Card(
                 child: Container(
                   height: 290,
