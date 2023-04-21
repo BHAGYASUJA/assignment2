@@ -1,10 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// void main()
-// {
-//   runApp(MaterialApp(home: gridui(),));
-// }
+
+
 
 void main() {
   runApp(DevicePreview(
@@ -16,7 +14,14 @@ void main() {
   ));
 }
 
-class gridui extends StatelessWidget {
+class gridui extends StatefulWidget {
+
+
+  @override
+  State<gridui> createState() => _griduiState();
+}
+
+class _griduiState extends State<gridui> {
   final TextEditingController _searchController = TextEditingController();
   final List<String> listimages = ["images/m1.jpg",
     "images/m2.jpg",
@@ -36,9 +41,9 @@ class gridui extends StatelessWidget {
   ];
   int index = 0;
 
+
   @override
   Widget build(BuildContext context) {
-    //var listTitle;
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -53,19 +58,26 @@ class gridui extends StatelessWidget {
               index = tapindex;
             });
           },
-          // onTap: (tapindex){
-          //   setState(() {
-          //     index =tapindex;
-          //   });},
+
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home,),backgroundColor:Colors.black, label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home,),
+                backgroundColor: Colors.black,
+                label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite,),backgroundColor:Colors.black, label: "Favorite"),
-            BottomNavigationBarItem(icon: Icon(Icons.people,), backgroundColor:Colors.black,label: "People"),
+                icon: Icon(Icons.favorite,),
+                backgroundColor: Colors.black,
+                label: "Favorite"),
+            BottomNavigationBarItem(icon: Icon(Icons.people,),
+                backgroundColor: Colors.black,
+                label: "People"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.camera_alt_rounded,), backgroundColor:Colors.black,label: "Camera"),
+                icon: Icon(Icons.camera_alt_rounded,),
+                backgroundColor: Colors.black,
+                label: "Camera"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_sharp,),backgroundColor:Colors.black, label: "Favorite"),
+                icon: Icon(Icons.favorite_sharp,),
+                backgroundColor: Colors.black,
+                label: "Favorite"),
 
           ],
         ),
@@ -124,7 +136,4 @@ class gridui extends StatelessWidget {
         )
     );
   }
-
-  void setState(Null Function() param0) {}
 }
-

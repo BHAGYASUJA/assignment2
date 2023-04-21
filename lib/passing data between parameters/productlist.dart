@@ -1,5 +1,4 @@
 import 'package:assignment3/passing%20data%20between%20parameters/dummydata.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class productlist extends StatelessWidget {

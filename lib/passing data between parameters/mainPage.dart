@@ -24,14 +24,15 @@ class mainpage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(15),
        // children: dummyProducts.map((product) => Image(image:NetworkImage(product["image"]))),.toList(),
-       //
           children: dummyProducts
               .map((product) => TextButton(
               onPressed: () => gotoNext(context, product["id"]),
               child: Text(
                 "${product["name"]}",
                 style: const TextStyle(fontSize: 20),
+
               )))
+
               .toList()),
     );
   }
