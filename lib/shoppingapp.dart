@@ -246,18 +246,6 @@ class _FarmerState extends State<Farmer> {
             ]),
           ),
 
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          //         Row(
-          //           children: [
-          //             Image.network(
-          //               "https://images.unsplash.com/photo-1542223189-67a03fa0f0bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1397&q=80",
-          //               fit: BoxFit.fill,
-          //             )
-          //           ],
-          //         ),
-
           SliverList(
             delegate: SliverChildListDelegate([
               const SizedBox(
