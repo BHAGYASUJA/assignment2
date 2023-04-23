@@ -1,16 +1,4 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-
-
-void main() {
-  runApp(DevicePreview(
-    builder: (BuildContext context) =>  MaterialApp(
-      useInheritedMediaQuery: true,
-      home: ProfileBottomTab(),
-      debugShowCheckedModeBanner: false,
-    ),
-  ));
-}
 
 class ProfileBottomTab extends StatelessWidget {
   List profileTileList = [
@@ -29,7 +17,7 @@ class ProfileBottomTab extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Account',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.grey),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -94,8 +82,9 @@ class ProfileBottomTab extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color: Colors.white, width: 5),
                         image: const DecorationImage(
-                            image: AssetImage(
-                              'images/p1.jpg' ),
+                            image: NetworkImage(
+                              'https://media.istockphoto.com/id/1334433318/photo/big-sister-warning-little-brother-1988-in-garden.jpg?s=1024x1024&w=is&k=20&c=cAc2IvvXxiTx3KPsJ_NvDbVDeqKJ47z7lKR8qJ6hLl4=',
+                            ),
                             fit: BoxFit.cover)),
                   ),
                   SizedBox(height: 15),

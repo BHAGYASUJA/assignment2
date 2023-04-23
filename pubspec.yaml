@@ -36,6 +36,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   expansion_tile_card:
   flutter_rating_bar: ^4.0.1
+  custom_button: ^0.0.1
 
 
 
