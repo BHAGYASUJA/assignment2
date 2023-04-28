@@ -37,6 +37,8 @@ dependencies:
   expansion_tile_card:
   flutter_rating_bar: ^4.0.1
   custom_button: ^0.0.1
+  shared_preferences:
+  sqflite: ^2.2.7
 
 
 

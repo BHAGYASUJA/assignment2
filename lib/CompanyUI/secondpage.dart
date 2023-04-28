@@ -66,7 +66,7 @@ class _secondpageState extends State<secondpage> {
                           fillColor: Colors.cyanAccent,
                           // prefixIcon: const Icon(Icons.account_box_sharp),
                           hintText: 'UserName',
-                          labelText: 'Eg:652426278',
+                          labelText: '18/05/2023',
                           // helperText: "Enter the invoice number",
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(100)),
@@ -85,7 +85,7 @@ class _secondpageState extends State<secondpage> {
                           fillColor: Colors.cyanAccent,
                           // prefixIcon: const Icon(Icons.account_box_sharp),
                           hintText: 'UserName',
-                          labelText: 'Eg:652426278',
+                          labelText: '5246',
                           // helperText: "Enter the invoice number",
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(100)),

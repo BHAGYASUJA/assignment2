@@ -67,7 +67,7 @@ class _firstpageState extends State<firstpage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Enter the Invoice Number"),
+                      child: Text("Enter the Invoice Number",style: TextStyle(fontSize: 20),),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
