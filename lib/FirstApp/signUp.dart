@@ -10,7 +10,6 @@ class regFrom extends StatefulWidget {
 }
 
 class _regFromState extends State<regFrom> {
-
   final name_controller = TextEditingController();
   final username_controller = TextEditingController();
   final password_controller = TextEditingController();
@@ -27,14 +26,8 @@ class _regFromState extends State<regFrom> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double height = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
         height: height,
@@ -46,19 +39,27 @@ class _regFromState extends State<regFrom> {
               Container(
                 width: width,
                 height: height * 0.45,
-                child: Image.asset('images/ww.jpg', fit: BoxFit.fill,),
+                child: Image.asset(
+                  'images/ww.jpg',
+                  fit: BoxFit.fill,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text('Signup', style: TextStyle(
-                        fontSize: 25.0, fontWeight: FontWeight.bold),),
+                    Text(
+                      'Signup',
+                      style: TextStyle(
+                          fontSize: 25.0, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 30.0,),
+              SizedBox(
+                height: 30.0,
+              ),
               TextField(
                 controller: name_controller,
                 decoration: InputDecoration(
@@ -69,7 +70,9 @@ class _regFromState extends State<regFrom> {
                   ),
                 ),
               ),
-              SizedBox(height: 30.0,),
+              SizedBox(
+                height: 30.0,
+              ),
               TextField(
                 controller: username_controller,
                 decoration: InputDecoration(
@@ -80,7 +83,9 @@ class _regFromState extends State<regFrom> {
                   ),
                 ),
               ),
-              SizedBox(height: 20.0,),
+              SizedBox(
+                height: 20.0,
+              ),
               TextField(
                 controller: password_controller,
                 //obscureText: true,
@@ -92,13 +97,18 @@ class _regFromState extends State<regFrom> {
                   ),
                 ),
               ),
-              SizedBox(height: 30.0,),
+              SizedBox(
+                height: 30.0,
+              ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Forget password?', style: TextStyle(fontSize: 12.0),),
+                    Text(
+                      'Forget password?',
+                      style: TextStyle(fontSize: 12.0),
+                    ),
                     TextButton(
                       child: Text('Signup'),
                       // color: Color(0xffEE7B23),
@@ -109,8 +119,6 @@ class _regFromState extends State<regFrom> {
                   ],
                 ),
               ),
-
-
               SizedBox(height: 20.0),
               GestureDetector(
                 onTap: () {
@@ -118,28 +126,20 @@ class _regFromState extends State<regFrom> {
                       MaterialPageRoute(builder: (context) => logPage()));
                 },
                 child: Text.rich(
-                  TextSpan(
-                      text: 'Already have an account',
-                      children: [
-                        TextSpan(
-                          text: 'Signin',
-                          style: TextStyle(
-                              color: Color(0xffEE7B23)
-                          ),
-                        ),
-                      ]
-                  ),
+                  TextSpan(text: 'Already have an account', children: [
+                    TextSpan(
+                      text: 'Signin',
+                      style: TextStyle(color: Color(0xffEE7B23)),
+                    ),
+                  ]),
                 ),
               ),
-
-
             ],
           ),
         ),
       ),
     );
   }
-
 
   void RegForm() async {
     logindata = await SharedPreferences.getInstance();

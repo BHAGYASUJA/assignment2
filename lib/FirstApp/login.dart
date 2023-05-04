@@ -147,7 +147,7 @@ class _logPageState extends State<logPage> {
               TextButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>regFrom()));
               },
-                child: Text.rich(
+                child: const Text.rich(
                   TextSpan(
                       text: 'Don\'t have an account',
                       children: [
