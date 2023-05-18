@@ -18,11 +18,11 @@ class MyTODo extends StatefulWidget {
 }
 
 class _MyTODoState extends State<MyTODo> {
-
   /// To Store Task From Hive db
   List<Map<String, dynamic>> task = [];
 
   final tbox = Hive.box('task_box');
+
   @override
   void initState() {
     // TODO: implement initState
@@ -40,10 +40,30 @@ class _MyTODoState extends State<MyTODo> {
     });
   }
 
+///Adding data to hive
   Future<void> createTask(Map<String, String> task) async {
     await tbox.add(task);
     loadTask();
   }
+
+///Updating hive datas
+  Future <void> updateTask(int id, Map<String, dynamic>uptsk) async {
+    await tbox.put(id, uptsk);
+    loadTask();
+  }
+
+  ///Deleting hive data
+
+ Future <void> deleteTask(int key) async{
+    await tbox.delete(key);
+    loadTask();
+ }
+
+ ///Reading Single Data
+ Map<String,dynamic> readData(int key){
+    final data = tbox.get(key);
+    return data;
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -53,32 +73,40 @@ class _MyTODoState extends State<MyTODo> {
       ),
       body: task.isEmpty
           ? const Center(
-              child: Text(
-                "No data ",
-                style: TextStyle(fontSize: 40),
-              ),
-            )
+        child: Text(
+          "No data ",
+          style: TextStyle(fontSize: 40),
+        ),
+      )
           : ListView.builder(
-              itemCount: task.length,
-              itemBuilder: (context, index) {
-               // final tsk = task[index];
-                return Card(
-                  color: Colors.pinkAccent,
-                  margin: EdgeInsets.all(10),
-                  elevation: 3,
-                  child: ListTile(
-                    title: Text(task[index]['name']),
-                    subtitle: Text(task[index]['details']),
-                    trailing: Wrap(
-                      //mainAxisAlignment: MainAxisSize.min,
-                      children: [
-                        IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
-                      ],
-                    ),
-                  ),
-                );
-              }),
+          itemCount: task.length,
+          itemBuilder: (context, index) {
+            // final tsk = task[index];
+            return Card(
+              color: Colors.pinkAccent,
+              margin: EdgeInsets.all(10),
+              elevation: 3,
+              child: ListTile(
+                title: Text(task[index]['name']),
+                subtitle: Text(task[index]['details']),
+                trailing: Wrap(
+                  //mainAxisAlignment: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          showForm(context, task[index]['key']);
+                        },
+                        icon: Icon(Icons.edit)),
+                    IconButton(
+                        onPressed: () {
+                          deleteTask(task[index]['key']);
+                        },
+                        icon: Icon(Icons.delete)),
+                  ],
+                ),
+              ),
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () => showForm(context, null),
         child: Icon(Icons.add),
@@ -90,6 +118,11 @@ class _MyTODoState extends State<MyTODo> {
   final TextEditingController details_controller = TextEditingController();
 
   void showForm(BuildContext context, int? id) async {
+    if (id != null) {
+      final ex_task = task.firstWhere((element) => element['key'] == id);
+      name_controller.text = ex_task['name'];
+      details_controller.text = ex_task['details'];
+    }
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
@@ -97,7 +130,10 @@ class _MyTODoState extends State<MyTODo> {
         builder: (context) {
           return Container(
             padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom + 120,
+              bottom: MediaQuery
+                  .of(context)
+                  .viewInsets
+                  .bottom + 120,
               top: 15,
               left: 15,
               right: 15,
@@ -127,9 +163,12 @@ class _MyTODoState extends State<MyTODo> {
                           'details': details_controller.text
                         });
                       }
-                      // if(id != null){
-                      //   updateTask(id,{'name':name_controller.text,'details':details_controller.text});
-                      // }
+                      if (id != null) {
+                        updateTask(id, {
+                          'name': name_controller.text,
+                          'details': details_controller.text
+                        });
+                      }
                       name_controller.text = "";
                       details_controller.text = "";
                       Navigator.of(context).pop();

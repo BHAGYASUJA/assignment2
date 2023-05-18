@@ -1,52 +1,62 @@
-import 'package:flutter/cupertino.dart';
+import 'package:assignment3/FaceBookUi/items/circlebutton.dart';
+import 'package:assignment3/FaceBookUi/items/data.dart';
+import 'package:assignment3/FaceBookUi/items/postContainer.dart';
+import 'package:assignment3/FaceBookUi/items/room.dart';
+import 'package:assignment3/FaceBookUi/items/story.dart';
 import 'package:flutter/material.dart';
 
-class homePage extends StatefulWidget {
-  const homePage({Key? key}) : super(key: key);
+import 'items/post.dart';
+import 'items/postmodel.dart';
 
-  @override
-  State<homePage> createState() => _homePageState();
-}
 
-class _homePageState extends State<homePage> {
-  int _currentIndex = 0;
-  Color butt = Colors.pink;
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        items: [
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.blueAccent),
-              label: 'Home',
-              backgroundColor: Colors.white),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.people, color: Colors.grey[700]),
-              label: 'Peoples',
-              backgroundColor: Colors.white),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.people_alt_outlined, color: Colors.grey[700]),
-          //     title: Text(""),
-          //     backgroundColor: Colors.white),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.tv, color: Colors.grey[700]),
-          //     title: Text(""),
-          //     backgroundColor: Colors.white),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.notifications, color: Colors.grey[700]),
-          //     title: Text(""),
-          //     backgroundColor: Colors.white),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.more_vert_outlined, color: Colors.grey[700]),
-          //     title: Text(""),
-          //     backgroundColor: Colors.white),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            brightness: Brightness.light,
+            backgroundColor: Colors.white,
+            title: Text(
+              "facebook",
+              style: TextStyle(
+                  color: Color(0xFF1777F2), fontSize: 28, letterSpacing: -1.2),
+            ),
+            centerTitle: false,
+            floating: true,
+            actions: [
+              CricleButton(icon: Icons.search, iconSize: 25, onPressed: () {}),
+              CricleButton(
+                  icon: Icons.facebook,
+                  iconSize: 25,
+                  onPressed: () {})
+            ],
+          ),
+          SliverToBoxAdapter(
+            child: CreatePostContainer(
+              currentUser: currentUser,
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: Rooms(onlineUsers: onlineUsers),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: Stories(currentUser: currentUser, stories: stories),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              final Post post = posts[index];
+              return PostContainer(post: post);
+            }, childCount: posts.length),
+          )
         ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
       ),
     );
   }

@@ -41,6 +41,25 @@ dependencies:
   sqflite: ^2.2.7
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  get: ^4.6.5
+  email_validator:
+  flutter_bloc:
+  firebase_core:
+  firebase_auth:
+  firebase_core_web:
+  firebase_storage: ^11.2.0
+  image_picker: ^0.8.7+5
+  path:
+  sizer: ^2.0.15
+  eva_icons_flutter: ^3.1.0
+  permission_handler:
+  persistent_bottom_nav_bar: ^5.0.2
+  video_player: ^2.6.1
+  intl_phone_field: ^3.1.0
+  flutter_svg: ^2.0.5
+  provider:
+
+
 
 
 
@@ -51,6 +70,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator:
+  build_runner:
+  toggle_switch: ^2.1.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -73,6 +95,7 @@ flutter:
   # To add images to your application, add an images section, like this:
   assets:
    - images/
+   - images/EduApp/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

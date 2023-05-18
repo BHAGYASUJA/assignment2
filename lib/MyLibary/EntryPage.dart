@@ -1,30 +1,17 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(MaterialApp(home: entryPage(),));
+class entrypage extends StatefulWidget {
 
+
+  @override
+  State<entrypage> createState() => _entrypageState();
 }
 
-
-class entryPage extends StatelessWidget {
-  const entryPage({Key? key}) : super(key: key);
-
+class _entrypageState extends State<entrypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text("Welocome To Page"),
-            ElevatedButton(onPressed: () {  }, child: null,
-
-      )
-
-
-          ],
-        ),
-      ),
     );
   }
 }
