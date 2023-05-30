@@ -28,14 +28,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // static final imgs = [
-  //   'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  //   'https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  //   'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  //   'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  //   'https://images.pexels.com/photos/161758/governor-s-mansion-montgomery-alabama-grand-staircase-161758.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   'https://images.pexels.com/photos/594077/pexels-photo-594077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  // ];
+
   static final imgs2 = [
     'hotel1',
     'hotel2',
@@ -71,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BookingAppBar(),
           SliverList(
               delegate: SliverChildListDelegate([
-                SearchBar(),
+               // SearchBar(),
                 TitleWidget(
                   title: "Popular Hotels",
                 ),

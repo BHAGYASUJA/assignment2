@@ -4,6 +4,7 @@ import 'package:assignment3/FaceBookUi/items/postContainer.dart';
 import 'package:assignment3/FaceBookUi/items/room.dart';
 import 'package:assignment3/FaceBookUi/items/story.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'items/post.dart';
 import 'items/postmodel.dart';
@@ -16,7 +17,6 @@ class HomeScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            brightness: Brightness.light,
             backgroundColor: Colors.white,
             title: Text(
               "facebook",
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                   icon: Icons.facebook,
                   iconSize: 25,
                   onPressed: () {})
-            ],
+            ], systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
           SliverToBoxAdapter(
             child: CreatePostContainer(

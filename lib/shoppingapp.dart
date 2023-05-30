@@ -1,14 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-//
-// void main() {
-//   runApp(MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     theme: ThemeData(primarySwatch: Colors.green),
-//     home: Farmer(),
-//   ));
-// }
 
 void main() {
   runApp(DevicePreview(
